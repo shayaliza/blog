@@ -204,16 +204,17 @@ function RazorPay() {
           <CodeBlock code={HtmlScript} />
 
           <div className="text-lightwhite  pt-3 block text-center m-auto font3 text-lg">
-            Step 1. Create React App and create component payment.jsx and use it
+            Step 2. Create React App and create component payment.jsx and use it
             in App.js
           </div>
           <div className="text-lightwhite  pt-3 block text-center m-auto font3 text-lg">
-            Step 2. payment.jsx
+            Step 3. payment.jsx
           </div>
         </div>
         <CodeBlock code={FrontendPayment} />
         <div className="text-lightwhite  pt-3 block text-center m-auto font3 text-lg">
-          Test Card Number, CVV = Random Number , Expiry Date = Any Future Date
+          Step 4.Test Card Number, CVV = Random Number , Expiry Date = Any
+          Future Date
           <CodeBlock code={"5267 3181 8797 5449"} />
           <CodeBlock code={"4111 1111 1111 1111"} />
         </div>
