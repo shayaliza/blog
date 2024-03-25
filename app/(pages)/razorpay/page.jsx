@@ -4,14 +4,13 @@ const PaymentController = `
 const crypto = require("crypto");
 const Razorpay = require("razorpay");
 
-const keyID = "your key id here";
-const keySecret = "your key secret here";
+const keyID = "Paste your key ID";
+const keySecret = "Paste your key Secret ";
 
 const instance = new Razorpay({
   key_id: keyID,
   key_secret: keySecret,
 });
-
 
 const Checkout = async (req, res) => {
   try {
@@ -26,7 +25,6 @@ const Checkout = async (req, res) => {
   }
 };
 const PaymentVerification = async (req, res) => {
-
   const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
     req.body;
   const body = razorpay_order_id + "|" + razorpay_payment_id;
@@ -39,17 +37,18 @@ const PaymentVerification = async (req, res) => {
   const isAuthentic = expectedSignature === razorpay_signature;
   if (isAuthentic) {
     console.log("is authentic");
-    res.redirect();  //redirect to payment success page of frontend
-
+    res.redirect(); //redirect to payment success page of frontend
   } else {
     res.status(400).json({
       success: false,
     });
   }
-  module.exports = {
-    PaymentVerification,
-    Checkout,
-  };
+};
+module.exports = {
+  PaymentVerification,
+  Checkout,
+};
+
 `;
 
 const PaymentRoutes = `
@@ -58,13 +57,14 @@ const express = require("express");
 const {
   Checkout,
   PaymentVerification,
-} = require("../../Controller/paymentController/paymentController");
+} = require("./../Controller/paymentController");
 const router = express.Router();
 
 router.post("/checkout", Checkout);
 router.post("/paymentverification", PaymentVerification);
 
 module.exports = router;
+
 
 `;
 const Server = `
@@ -83,8 +83,9 @@ app.use("/api", paymentRoutes);
 
 const PORT = 5000;
 app.listen(PORT, () => {
-  console.log(Server is Running);
+  console.log("Server is Runnig");
 });
+
 
 `;
 const FrontendPayment = `
@@ -155,6 +156,11 @@ Backend
   
 `;
 
+const HtmlScript = `
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+`;
+
 function RazorPay() {
   return (
     <>
@@ -193,6 +199,11 @@ function RazorPay() {
             Frontend
           </div>
           <div className="text-lightwhite  pt-3 block text-center m-auto font3 text-lg">
+            Step 1. Write this Script in index.html in body
+          </div>
+          <CodeBlock code={HtmlScript} />
+
+          <div className="text-lightwhite  pt-3 block text-center m-auto font3 text-lg">
             Step 1. Create React App and create component payment.jsx and use it
             in App.js
           </div>
@@ -201,6 +212,11 @@ function RazorPay() {
           </div>
         </div>
         <CodeBlock code={FrontendPayment} />
+        <div className="text-lightwhite  pt-3 block text-center m-auto font3 text-lg">
+          Test Card Number, CVV = Random Number , Expiry Date = Any Future Date
+          <CodeBlock code={"5267 3181 8797 5449"} />
+          <CodeBlock code={"4111 1111 1111 1111"} />
+        </div>
         <div className="text-lightwhite  pt-3 block text-center m-auto font3 text-lg pb-20">
           Bss Itna hi h<div>OK BYE</div>
         </div>
