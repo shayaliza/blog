@@ -18,6 +18,16 @@ function Content() {
             </div>
           </Link>
         </div>
+        <div className=" p-4">
+          <Link href={"/firebase"}>
+            <div className="  shadow-md p-6 text-lightwhite border-pinkborder border-4 hover:bg-pinkborder hover:text-bluebg  rounded-3xl ">
+              <h2 className=" font-bold mb-2 font1 text-2xl">
+                Firebase Authentication
+              </h2>
+              <p className="font2 text-lg pt-2 ">Phone Otp , Google , Email</p>
+            </div>
+          </Link>
+        </div>
       </div>
     </div>
   );
