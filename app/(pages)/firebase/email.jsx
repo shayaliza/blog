@@ -1,5 +1,6 @@
 import React from "react";
 import CodeBlock from "@/app/components/codeblock";
+import ReadMore from "@/app/components/readmore";
 
 const FirstInstallation = `npm create vite@latest
 `;
@@ -119,15 +120,10 @@ function Email() {
           Step 4. Create a component email.jsx and use it in App.jsx
         </div>
         <CodeBlock code={Phone1} />
-        <div className="text-lightwhite  pt-3 block text-center m-auto font3 text-lg">
-          Step 5. Important Point
-          <p>
-            -- Koi Noobda hi hoga jisko email and password set krna nhi aata --
-          </p>
-        </div>
-        <div className="text-lightwhite  pt-3 block text-center m-auto font3 text-lg pb-20">
-          CSS to sbka aata h to apna apna dekh lena<div>OK BYE</div>
-        </div>
+
+        <ReadMore
+          text={"Koi Noobda hi hoga jisko email and password set krna nhi aata"}
+        />
       </div>
     </>
   );

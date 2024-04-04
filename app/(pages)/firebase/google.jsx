@@ -1,5 +1,6 @@
 import React from "react";
 import CodeBlock from "@/app/components/codeblock";
+import ReadMore from "@/app/components/readmore";
 
 const FirstInstallation = `npm create vite@latest
 `;
@@ -100,9 +101,7 @@ function Google() {
             only name will be shown--
           </p>
         </div>
-        <div className="text-lightwhite  pt-3 block text-center m-auto font3 text-lg pb-20">
-          CSS to sbka aata h to apna apna dekh lena<div>OK BYE</div>
-        </div>
+        <ReadMore text={"CSS to sbka aata h to apna apna dekh lena"} />
       </div>
     </>
   );
